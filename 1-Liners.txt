@@ -1,0 +1,11 @@
+cat f.txt |  tr '\t' ','
+
+searchip="10.98.74.38";  tmsh -q list ltm pool one-line | egrep -E "$searchip:[0-9]+"  | while read line; do myipport=$(echo $line | egrep -oE "$searchip:[0-9]+"); echo $line | awk '{printf "%s ",$3}'; echo "$myipport "; done
+
+tmsh -q list ltm pool one-line | egrep -E "$check:[0-9]+"  | while read line; do myipport=$(echo $line | egrep -oE "$check:[0-9]+"); echo $line | awk '{printf "%s ",$3}'; echo "$myipport "; done
+
+#send "tmsh -q list ltm pool one-line | egrep -E \"$check:\[0-9\]\+\"  | while read line; do myipport=\$(echo \$line | egrep -oE \"\$check:\[0-9\]\+\"); echo \$line | awk '{printf "\%s \",\$3}'; echo \"\$myipport \"; done\n"
+
+awk '{gsub(/{|}|Capability|Device|show cdp/,"");}1' devices.txt | awk NF
+
+awk '{gsub(/{|}/,"");}1' devices.txt | awk NF
