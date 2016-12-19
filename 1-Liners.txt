@@ -9,3 +9,10 @@ tmsh -q list ltm pool one-line | egrep -E "$check:[0-9]+"  | while read line; do
 awk '{gsub(/{|}|Capability|Device|show cdp/,"");}1' devices.txt | awk NF
 
 awk '{gsub(/{|}/,"");}1' devices.txt | awk NF
+
+#Inserting name of file into every line:
+for filename in *.txt; do sed -i "s/^/$filename /" $filename; done
+
+#Inserting name of file into the very 1st line:
+for filename in *.txt; do sed -i "1s/^/$filename /\n" $filename; done
+
