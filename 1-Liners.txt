@@ -16,3 +16,5 @@ for filename in *.txt; do sed -i "s/^/$filename /" $filename; done
 #Inserting name of file into the very 1st line:
 for filename in *.txt; do sed -i "1s/^/$filename /\n" $filename; done
 
+#Multiple files combined into one file:
+cat *.txt > ONE.txt
