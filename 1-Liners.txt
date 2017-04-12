@@ -20,7 +20,7 @@ for filename in *.txt; do sed -i "1s/^/$filename /\n" $filename; done
 cat *.txt > ONE.txt
 
 #Empty SSH Known Hosts File:
-cp /dev/null/ ~/.ssh/known_hosts
+cp /dev/null ~/.ssh/known_hosts
 
 #Change case:
 tr '[:upper:]' '[:lower:]' < input
