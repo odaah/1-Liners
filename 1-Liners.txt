@@ -25,3 +25,5 @@ cp /dev/null ~/.ssh/known_hosts
 #Change case:
 tr '[:upper:]' '[:lower:]' < input
 
+Split NAT:
+awk -F "host" '{printf "%s\nhost%s\n",$1,$2}'
