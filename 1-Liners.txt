@@ -27,3 +27,6 @@ tr '[:upper:]' '[:lower:]' < input
 
 Split NAT:
 awk -F "host" '{printf "%s\nhost%s\n",$1,$2}'
+
+Convert excel to csv:
+cat ifile.txt | tr -s '[:blank:]' ','
