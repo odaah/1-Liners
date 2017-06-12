@@ -27,6 +27,7 @@ tr '[:upper:]' '[:lower:]' < input
 
 Split NAT:
 awk -F "host" '{printf "%s\nhost%s\n",$1,$2}'
+cat * | grep distro1 | sort -u | sed 's/distro1a//g' | awk -F "switchport" '{printf "%s\nswitchport%s\n",$1,$2}'
 
 Convert excel to csv:
 cat ifile.txt | tr -s '[:blank:]' ','
