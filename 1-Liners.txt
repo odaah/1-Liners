@@ -31,3 +31,9 @@ cat * | grep distro1 | sort -u | sed 's/distro1a//g' | awk -F "switchport" '{pri
 
 Convert excel to csv:
 cat ifile.txt | tr -s '[:blank:]' ','
+
+Create NAT Object:
+cat a.txt | awk '{print $2,$2}' | sed 's/^/object network OBJ-/g' | sed 's/ 10/ host 10/g' | awk -F "host" '{printf "%s\nhost%s\n",$1,$2}'
+
+Create Static NAT:
+cat a.txt | awk '{print $2,$1}' | sed 's/^/object network OBJ-/g' | awk '{print $1,$2,$3,"nat (inside,outside) static",$4}' | awk -F "nat" '{printf "%s\nnat%s\n",$1,$2}'
