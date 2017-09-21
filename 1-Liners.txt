@@ -39,3 +39,6 @@ Create Static NAT:
 cat a.txt | awk '{print $2,$1}' | sed 's/^/object network OBJ-/g' | awk '{print $1,$2,$3,"nat (inside,outside) static",$4}' | awk -F "nat" '{printf "%s\nnat%s\n",$1,$2}'
 
 cat a.txt | grep AggE | awk '{print $1,$2}' | sed 's/\[\|\]/ /g;s/E /E.lon3 /g' | sort -k1 -k2 -k3 | tr '[:upper:]' '[:lower:]' | awk '{print $1","$2","$3}' > port.csv
+
+Print "security idp" above every line that has pattern "custom-attack":
+awk '{if (/^custom-attack/)  {printf "security idp\n%s\n",$0} else print $0}'
