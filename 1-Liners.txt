@@ -42,3 +42,6 @@ cat a.txt | grep AggE | awk '{print $1,$2}' | sed 's/\[\|\]/ /g;s/E /E.lon3 /g' 
 
 Print "security idp" above every line that has pattern "custom-attack":
 awk '{if (/^custom-attack/)  {printf "security idp\n%s\n",$0} else print $0}'
+
+#Parsing Ansible Output
+cat logfile.txt | grep "ansible_net_" | egrep -v "\[" | grep "hostname\|version" | sed 's/"\|,\|ansible_net_//g' | sed -r 's/\s+//g'
